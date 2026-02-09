@@ -1,0 +1,58 @@
+﻿@{
+ViewData["Title"] = "Home";
+}
+
+<!-- Google Fonts (visual only) -->
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+    .hero-wrapper {
+        padding: 70px 20px;
+        text-align: center;
+    }
+
+    .hero-title {
+        font-family: 'Playfair Display', serif;
+        font-size: 3rem;
+        font-weight: 700;
+        margin-bottom: 16px;
+        color: #212529;
+    }
+
+    .hero-tagline {
+        font-family: 'Inter', sans-serif;
+        font-size: 1.1rem;
+        color: #6c757d;
+        max-width: 620px;
+        margin: 0 auto 50px;
+        line-height: 1.6;
+    }
+
+    .image-frame {
+        display: inline-block;
+        padding: 14px;
+        background: #ffffff;
+        border-radius: 18px;
+        box-shadow: 0 25px 45px rgba(0, 0, 0, 0.12);
+    }
+
+    .hero-image {
+        max-width: 340px;
+        border-radius: 12px;
+        display: block;
+    }
+</style>
+
+<div class="hero-wrapper">
+    <h1 class="hero-title">The Joel Hilton Film Collection</h1>
+
+    <p class="hero-tagline">
+        A thoughtfully curated archive of films—each one personally approved and shelf-worthy.
+    </p>
+
+    <div class="image-frame">
+        <img src="~/img/joel.jpg"
+             alt="Joel Hilton"
+             class="hero-image" />
+    </div>
+</div>

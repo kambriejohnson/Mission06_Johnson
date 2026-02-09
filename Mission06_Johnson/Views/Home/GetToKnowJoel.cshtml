@@ -1,0 +1,88 @@
+@{
+    ViewData["Title"] = "Get to Know Joel";
+}
+
+<!-- Google Fonts (visual only) -->
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+    .profile-wrapper {
+        padding: 70px 20px;
+        text-align: center;
+    }
+
+    .profile-title {
+        font-family: 'Playfair Display', serif;
+        font-size: 2.8rem;
+        font-weight: 700;
+        margin-bottom: 20px;
+        color: #212529;
+    }
+
+    .profile-text {
+        font-family: 'Inter', sans-serif;
+        font-size: 1.05rem;
+        color: #6c757d;
+        max-width: 620px;
+        margin: 0 auto 40px;
+        line-height: 1.6;
+    }
+
+    .links {
+        margin-bottom: 45px;
+    }
+
+    .links a {
+        display: inline-block;
+        margin: 0 15px;
+        font-family: 'Inter', sans-serif;
+        font-weight: 500;
+        text-decoration: none;
+        color: #0d6efd;
+    }
+
+    .links a:hover {
+        text-decoration: underline;
+    }
+
+    .image-frame {
+        display: inline-block;
+        padding: 14px;
+        background: #ffffff;
+        border-radius: 18px;
+        box-shadow: 0 25px 45px rgba(0, 0, 0, 0.12);
+    }
+
+    .profile-image {
+        max-width: 320px;
+        border-radius: 12px;
+        display: block;
+    }
+</style>
+
+<div class="profile-wrapper">
+    <h1 class="profile-title">Get to Know Joel</h1>
+
+    <p class="profile-text">
+        Joel Hilton is a film enthusiast, reviewer, performer, and podcaster with a deep love for cinema
+        and pop culture.
+    </p>
+
+    <div class="links">
+        <a href="https://www.qwcomedy.com/" target="_blank">
+            Quick Wits Comedy
+        </a>
+
+        <a href="https://baconsale.com/" target="_blank">
+            Baconsale Podcast
+        </a>
+    </div>
+
+    <a href="https://baconsale.com/" target="_blank">
+        <div class="image-frame">
+            <img src="~/img/baconsale.jpg"
+                 alt="Baconsale Podcast"
+                 class="profile-image" />
+        </div>
+    </a>
+</div>

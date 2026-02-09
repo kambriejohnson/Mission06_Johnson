@@ -1,0 +1,112 @@
+@model Mission06_Johnson.Models.Movie
+
+@{
+    ViewData["Title"] = "Add Movie";
+}
+
+<!-- Google Fonts (visual only) -->
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+    .form-wrapper {
+        max-width: 650px;
+        margin: 60px auto;
+        padding: 50px;
+        background: #ffffff;
+        border-radius: 20px;
+        box-shadow: 0 25px 45px rgba(0, 0, 0, 0.08);
+    }
+
+    .form-title {
+        font-family: 'Playfair Display', serif;
+        font-size: 2.5rem;
+        font-weight: 700;
+        text-align: center;
+        margin-bottom: 10px;
+        color: #212529;
+    }
+
+    .form-subtitle {
+        font-family: 'Inter', sans-serif;
+        font-size: 1rem;
+        color: #6c757d;
+        text-align: center;
+        margin-bottom: 40px;
+    }
+
+    label {
+        font-family: 'Inter', sans-serif;
+        font-weight: 500;
+        margin-top: 10px;
+    }
+
+    .form-control {
+        border-radius: 10px;
+        padding: 10px 12px;
+        font-family: 'Inter', sans-serif;
+    }
+
+    .btn-submit {
+        margin-top: 30px;
+        width: 100%;
+        padding: 12px;
+        border-radius: 12px;
+        font-size: 1.05rem;
+        font-weight: 500;
+    }
+
+    .text-danger {
+        font-family: 'Inter', sans-serif;
+        font-size: 0.9rem;
+        margin-bottom: 20px;
+    }
+</style>
+
+<div class="form-wrapper">
+    <h1 class="form-title">Add a Movie</h1>
+    <p class="form-subtitle">
+        Enter the details below to add a film to the collection.
+    </p>
+
+    <form asp-action="AddMovie" method="post">
+        <div asp-validation-summary="All" class="text-danger"></div>
+
+        <label>Category</label>
+        <input asp-for="Category" class="form-control" />
+
+        <label>Title</label>
+        <input asp-for="Title" class="form-control" />
+
+        <label>Year</label>
+        <input asp-for="Year" class="form-control" />
+
+        <label>Director</label>
+        <input asp-for="Director" class="form-control" />
+
+        <label>Rating</label>
+        <select asp-for="Rating" class="form-control">
+            <option value="">Select Rating</option>
+            <option>G</option>
+            <option>PG</option>
+            <option>PG-13</option>
+            <option>R</option>
+        </select>
+
+        <label>Edited</label>
+        <select asp-for="Edited" class="form-control">
+            <option value="">Select</option>
+            <option value="true">Yes</option>
+            <option value="false">No</option>
+        </select>
+
+        <label>Lent To</label>
+        <input asp-for="LentTo" class="form-control" />
+
+        <label>Notes</label>
+        <input asp-for="Notes" class="form-control" maxlength="25" />
+
+        <button type="submit" class="btn btn-primary btn-submit">
+            Add Movie
+        </button>
+    </form>
+</div>
