@@ -1,112 +1,90 @@
 @model Mission06_Johnson.Models.Movie
+@using Microsoft.AspNetCore.Mvc.Rendering
 
 @{
     ViewData["Title"] = "Add Movie";
 }
 
-<!-- Google Fonts (visual only) -->
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<div class="container mt-5">
+    <h2 class="mb-4">
+        @(Model.MovieId == 0 ? "Add a Movie" : "Edit Movie")
+    </h2>
 
-<style>
-    .form-wrapper {
-        max-width: 650px;
-        margin: 60px auto;
-        padding: 50px;
-        background: #ffffff;
-        border-radius: 20px;
-        box-shadow: 0 25px 45px rgba(0, 0, 0, 0.08);
-    }
+    <form asp-action="@(Model.MovieId == 0 ? "AddMovie" : "EditMovie")" method="post">
 
-    .form-title {
-        font-family: 'Playfair Display', serif;
-        font-size: 2.5rem;
-        font-weight: 700;
-        text-align: center;
-        margin-bottom: 10px;
-        color: #212529;
-    }
+        <!-- Hidden ID so Edit works properly -->
+        <input type="hidden" asp-for="MovieId" />
 
-    .form-subtitle {
-        font-family: 'Inter', sans-serif;
-        font-size: 1rem;
-        color: #6c757d;
-        text-align: center;
-        margin-bottom: 40px;
-    }
-
-    label {
-        font-family: 'Inter', sans-serif;
-        font-weight: 500;
-        margin-top: 10px;
-    }
-
-    .form-control {
-        border-radius: 10px;
-        padding: 10px 12px;
-        font-family: 'Inter', sans-serif;
-    }
-
-    .btn-submit {
-        margin-top: 30px;
-        width: 100%;
-        padding: 12px;
-        border-radius: 12px;
-        font-size: 1.05rem;
-        font-weight: 500;
-    }
-
-    .text-danger {
-        font-family: 'Inter', sans-serif;
-        font-size: 0.9rem;
-        margin-bottom: 20px;
-    }
-</style>
-
-<div class="form-wrapper">
-    <h1 class="form-title">Add a Movie</h1>
-    <p class="form-subtitle">
-        Enter the details below to add a film to the collection.
-    </p>
-
-    <form asp-action="AddMovie" method="post">
         <div asp-validation-summary="All" class="text-danger"></div>
 
-        <label>Category</label>
-        <input asp-for="Category" class="form-control" />
+        <div class="mb-3">
+            <label asp-for="CategoryId" class="form-label">Category</label>
+            <select asp-for="CategoryId" class="form-select"
+                    asp-items="@(new SelectList(ViewBag.Categories, "CategoryId", "CategoryName"))">
+                <option value="">Select a Category</option>
+            </select>
+        </div>
 
-        <label>Title</label>
-        <input asp-for="Title" class="form-control" />
+        <div class="mb-3">
+            <label asp-for="Title" class="form-label"></label>
+            <input asp-for="Title" class="form-control" />
+        </div>
 
-        <label>Year</label>
-        <input asp-for="Year" class="form-control" />
+        <div class="mb-3">
+            <label asp-for="Year" class="form-label"></label>
+            <input asp-for="Year" class="form-control" />
+        </div>
 
-        <label>Director</label>
-        <input asp-for="Director" class="form-control" />
+        <div class="mb-3">
+            <label asp-for="Director" class="form-label"></label>
+            <input asp-for="Director" class="form-control" />
+        </div>
 
-        <label>Rating</label>
-        <select asp-for="Rating" class="form-control">
-            <option value="">Select Rating</option>
-            <option>G</option>
-            <option>PG</option>
-            <option>PG-13</option>
-            <option>R</option>
-        </select>
+        <div class="mb-3">
+            <label asp-for="Rating" class="form-label"></label>
+            <select asp-for="Rating" class="form-select">
+                <option value="">Select Rating</option>
+                <option value="G">G</option>
+                <option value="PG">PG</option>
+                <option value="PG-13">PG-13</option>
+                <option value="R">R</option>
+            </select>
+        </div>
 
-        <label>Edited</label>
-        <select asp-for="Edited" class="form-control">
-            <option value="">Select</option>
-            <option value="true">Yes</option>
-            <option value="false">No</option>
-        </select>
+        <div class="mb-3">
+            <label asp-for="Edited" class="form-label"></label>
+            <select asp-for="Edited" class="form-select">
+                <option value="">Select One</option>
+                <option value="true">Yes</option>
+                <option value="false">No</option>
+            </select>
+        </div>
 
-        <label>Lent To</label>
-        <input asp-for="LentTo" class="form-control" />
+        <div class="mb-3">
+            <label asp-for="CopiedToPlex" class="form-label"></label>
+            <select asp-for="CopiedToPlex" class="form-select">
+                <option value="">Select One</option>
+                <option value="true">Yes</option>
+                <option value="false">No</option>
+            </select>
+        </div>
 
-        <label>Notes</label>
-        <input asp-for="Notes" class="form-control" maxlength="25" />
+        <div class="mb-3">
+            <label asp-for="LentTo" class="form-label"></label>
+            <input asp-for="LentTo" class="form-control" />
+        </div>
 
-        <button type="submit" class="btn btn-primary btn-submit">
-            Add Movie
+        <div class="mb-3">
+            <label asp-for="Notes" class="form-label"></label>
+            <input asp-for="Notes" class="form-control" maxlength="25" />
+        </div>
+
+        <button type="submit" class="btn btn-primary">
+            @(Model.MovieId == 0 ? "Add Movie" : "Update Movie")
         </button>
+
+        <a asp-action="MovieList" class="btn btn-secondary ms-2">
+            Cancel
+        </a>
     </form>
 </div>

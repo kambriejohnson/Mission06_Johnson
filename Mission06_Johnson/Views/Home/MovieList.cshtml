@@ -1,0 +1,43 @@
+<h2 class="text-center mb-4">Joel's Movie Collection</h2>
+
+<div class="card shadow-sm">
+    <div class="card-body">
+
+        <table class="table table-striped table-hover table-bordered align-middle">
+            <thead class="table-dark">
+            <tr>
+                <th>Title</th>
+                <th>Year</th>
+                <th>Director</th>
+                <th>Rating</th>
+                <th>Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            @foreach (var movie in Model)
+            {
+                <tr>
+                    <td>@movie.Title</td>
+                    <td>@movie.Year</td>
+                    <td>@movie.Director</td>
+                    <td>@movie.Rating</td>
+                    <td class="text-nowrap">
+                        <a asp-action="EditMovie"
+                           asp-route-id="@movie.MovieId"
+                           class="btn btn-sm btn-outline-primary me-2">
+                            Edit
+                        </a>
+
+                        <a asp-action="DeleteMovie"
+                           asp-route-id="@movie.MovieId"
+                           class="btn btn-sm btn-outline-danger">
+                            Delete
+                        </a>
+                    </td>
+                </tr>
+            }
+            </tbody>
+        </table>
+
+    </div>
+</div>

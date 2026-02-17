@@ -212,3 +212,4 @@
 /Users/kambriejohnson/RiderProjects/Mission06_Johnson/Mission06_Johnson/bin/Debug/net10.0/runtimes/win-x86/native/e_sqlite3.dll
 /Users/kambriejohnson/RiderProjects/Mission06_Johnson/Mission06_Johnson/obj/Debug/net10.0/Mission06_Johnson.csproj.AssemblyReference.cache
 /Users/kambriejohnson/RiderProjects/Mission06_Johnson/Mission06_Johnson/obj/Debug/net10.0/Mission0.1A98D343.Up2Date
+/Users/kambriejohnson/RiderProjects/Mission06_Johnson/Mission06_Johnson/obj/Debug/net10.0/Mission06_Johnson.sourcelink.json

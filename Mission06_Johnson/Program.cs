@@ -2,10 +2,10 @@ using Microsoft.EntityFrameworkCore;
 using Mission06_Johnson.Models;
 
 var builder = WebApplication.CreateBuilder(args);
-builder.Services.AddDbContext<MovieDbContext>(options => options.UseSqlite(builder.Configuration.GetConnectionString("MovieConnection")));
 
+builder.Services.AddDbContext<MovieDbContext>(options =>
+    options.UseSqlite("Data Source=JoelHiltonMovieCollection.sqlite"));
 
-// Add services to the container.
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
@@ -14,7 +14,7 @@ var app = builder.Build();
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Home/Error");
-    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
+    // The default HSTS value is 30 days.
     app.UseHsts();
 }
 
